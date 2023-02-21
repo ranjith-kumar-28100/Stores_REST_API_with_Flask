@@ -14,7 +14,7 @@ def create_store():
     store_data = request.get_json()
     if "name" not in store_data:
         abort(400,message="Bad request. Ensure name is there in the json payload")
-    for store in store_data.values():
+    for store in stores.values():
         if store["name"] == store_data["name"]:
             abort(400,message="Store already exist.")
     store_id = uuid.uuid4().hex
